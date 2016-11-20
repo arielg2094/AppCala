@@ -1,0 +1,59 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="AppCala.Principal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFD4802B" Offset="0"/>
+                <GradientStop Color="#FFC51D1D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <phone:Pivot Title="CALA">
+            <!--<phone:PivotItem  Header="reservas">
+                <Grid>
+
+                </Grid>
+            </phone:PivotItem>-->
+            <phone:PivotItem Header="ordenes">
+                <Grid>
+                    <Button Content="nuevo" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="436" Tap="Button_Tap"/>
+                    <Button Content="cancelaciones" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="436" Tap="Button_Tap_1"/>
+                    <Button Content="cierres" HorizontalAlignment="Left" Margin="10,334,0,0" VerticalAlignment="Top" Width="436" Tap="Button_Tap_2"/>
+                    <TextBlock x:Name="tbMozo" HorizontalAlignment="Left" Margin="10,566,0,0" TextWrapping="Wrap" Text="mozo: " VerticalAlignment="Top" Width="436"/>
+                    <Button Content="entregas" HorizontalAlignment="Left" Margin="10,243,0,0" VerticalAlignment="Top" Width="436" Tap="Button_Tap_3"/>
+                    <Image HorizontalAlignment="Left" Height="82" VerticalAlignment="Top" Width="119" Source="/IMG/logo.png" Margin="335,519,0,0"/>
+
+                </Grid>
+
+            </phone:PivotItem>
+            <phone:PivotItem Header="configuración">
+                <Grid>
+                    <Image HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Width="282" Source="/IMG/logo.png" Margin="87,10,0,0"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" FontSize="30" Margin="35,245,0,0"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" FontSize="30" Margin="35,344,0,0"/>
+                    <TextBox x:Name="tbUsuario" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Margin="226,231,0,0"/>
+                    <PasswordBox x:Name="tbPassword" HorizontalAlignment="Left" Height="72" VerticalAlignment="Top" Width="220" Margin="226,330,0,0"/>
+                    <Button Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="87,425,0,0" VerticalAlignment="Top" Width="282" Tap="Button_Tap_4"/>
+
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

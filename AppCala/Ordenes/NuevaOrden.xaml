@@ -1,0 +1,94 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="AppCala.Ordenes.NuevaOrden"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFD4802B" Offset="0"/>
+                <GradientStop Color="#FFC51D1D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="CALA" Style="{StaticResource PhoneTextNormalStyle}" Margin="10,0,12,0" Foreground="White"/>
+            <TextBlock Text="nueva orden" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="White"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="seleccione mesa" VerticalAlignment="Top" Height="49" Width="202" FontSize="25"/>
+            <Button Content="mesas" HorizontalAlignment="Left" Margin="258,-7,0,0" VerticalAlignment="Top" Width="198" Tap="Button_Tap_1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,92,0,0" TextWrapping="Wrap" Text="seleccione recetas" VerticalAlignment="Top" Height="49" Width="202" FontSize="25"/>
+            <Button Content="platos" HorizontalAlignment="Left" Margin="258,75,0,0" VerticalAlignment="Top" Width="198" Tap="Button_Tap_2"/>
+            <TextBlock x:Name="tbMesaNro" HorizontalAlignment="Left" Margin="10,147,0,0" TextWrapping="Wrap" Text="mesa n° " VerticalAlignment="Top" Height="49" Width="202" FontSize="25"/>
+            <ListBox x:Name="lbx" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Height="229" Margin="10,196,0,0" VerticalAlignment="Top" Width="436"  FontSize="25" Background="Transparent" Padding="5,0" Foreground="White" SelectionChanged="lbx_SelectionChanged" BorderThickness="3" BorderBrush="#BFFFFFFF" GotFocus="ListBox_GotFocus" LostFocus="ListBox_LostFocus"/>
+            <Button x:Name="btOrdenar" Content="ordenar" HorizontalAlignment="Left" Margin="258,521,0,0" VerticalAlignment="Top" Width="198" Tap="btOrdenar_Tap"/>
+            <TextBox x:Name="tbObs" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="observaciones" VerticalAlignment="Top" Width="456" Margin="0,435,0,0" FontSize="25" Background="Transparent" Padding="5,0" Foreground="White" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Hold="tbObs_Hold"/>
+            <Button x:Name="btEliminar" Content="eliminar" HorizontalAlignment="Left" Margin="0,521,0,0" VerticalAlignment="Top" Width="195" IsEnabled="False" Tap="btEliminar_Tap"/>
+
+
+
+            <Popup x:Name="popupMesas" Grid.Row="2" Margin="10">
+                <StackPanel Height="570" Width="405" Margin="11,10,11,-128">
+                    <Grid Height="546" Margin="0,0,-13,0">
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFD4802B" Offset="0"/>
+                                <GradientStop Color="#FFC51D1D" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <TextBlock FontSize="35" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="mesas" VerticalAlignment="Top" Margin="132,10,127,0" Height="43" Width="146"/>
+                        <ListBox x:Name="lbMesas" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Height="349" Margin="10,79,0,0" VerticalAlignment="Top" Width="398"  FontSize="30" Background="{StaticResource TransparentBrush}" Padding="10,0" Foreground="White" BorderThickness="3" BorderBrush="#BFFFFFFF" GotFocus="ListBox_GotFocus" LostFocus="ListBox_LostFocus"/>
+                        <Button x:Name="btAceptarMesa" Content="aceptar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="232,464,0,0" Width="184" Tap="btAceptarMesa_Tap"/>
+                        <Button Content="cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,464,0,0" Width="184" Tap="Button_Tap_3"/>
+
+
+                    </Grid>
+                </StackPanel>
+            </Popup>
+
+            <Popup x:Name="popupRecetas" Grid.Row="2" Margin="10">
+                <StackPanel Height="570" Width="405" Margin="11,10,11,-128">
+                    <Grid Height="546" Margin="0,0,-13,0">
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFD4802B" Offset="0"/>
+                                <GradientStop Color="#FFC51D1D" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <TextBlock FontSize="35" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="recetas" VerticalAlignment="Top" Margin="132,10,127,0" Height="43" Width="146"/>
+                        <Button Content="añadir" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="232,464,0,0" Width="184" Click="Button_Click"/>
+                        <Button Content="cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,464,0,0" Width="184" Tap="Button_Tap"/>
+                        <TextBox x:Name="tbBuscar" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="buscar" VerticalAlignment="Top" Width="418" Margin="0,53,0,0" FontSize="25" Background="{StaticResource TransparentBrush}" Padding="5,0" Foreground="White" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Hold="tbBuscar_Hold" TextChanged="tbBuscar_TextChanged"/>
+                        <ListBox x:Name="lbRecetas" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Height="251" Margin="10,125,0,0" VerticalAlignment="Top" Width="398"  FontSize="25" Background="{StaticResource TransparentBrush}" Padding="5,0" Foreground="White" BorderBrush="#BFFFFFFF" BorderThickness="3" GotFocus="ListBox_GotFocus" LostFocus="ListBox_LostFocus" SelectionChanged="lbRecetas_SelectionChanged"/>
+                        <TextBox x:Name="tbCant" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="186" Margin="-2,387,0,0" FontSize="25" Background="{StaticResource TransparentBrush}" Padding="5,0" Foreground="White" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" InputScope="Number"/>
+                        <Image x:Name="imgMas" HorizontalAlignment="Left" Height="50" Margin="254,401,0,0" VerticalAlignment="Top" Width="53" Source="/IMG/add-128.png" Tap="imgMas_Tap"/>
+                        <Image x:Name="imgMenos" HorizontalAlignment="Left" Height="50" Margin="342,401,0,0" VerticalAlignment="Top" Width="53" Source="/IMG/icon-minus-round-128.png" Tap="imgMenos_Tap"/>
+
+                    </Grid>
+                </StackPanel>
+            </Popup>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="MesasDisponibles">
+        <s:complexType />
+      </s:element>
+      <s:element name="MesasDisponiblesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MesasDisponiblesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrdenesPendientes">
+        <s:complexType />
+      </s:element>
+      <s:element name="OrdenesPendientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrdenesPendientesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrdenesEntregadas">
+        <s:complexType />
+      </s:element>
+      <s:element name="OrdenesEntregadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrdenesEntregadasResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Recetas">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecetasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecetasResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NuevaOrden">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mesa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xdoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NuevaOrdenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NuevaOrdenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaDeOrden">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="platoid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cant" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mesa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaDeOrdenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EliminaDeOrdenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarRXO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mesa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xdoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarRXOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertarRXOResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPassResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="UsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsuariosResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstadoMesa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mesa" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstadoMesaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EstadoMesaResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecibePlatosOrden">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mesa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecibePlatosOrdenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecibePlatosOrdenResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Entregado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mesa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EntregadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EntregadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Prueba">
+        <s:complexType />
+      </s:element>
+      <s:element name="PruebaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PruebaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MesasDisponiblesSoapIn">
+    <wsdl:part name="parameters" element="tns:MesasDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="MesasDisponiblesSoapOut">
+    <wsdl:part name="parameters" element="tns:MesasDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrdenesPendientesSoapIn">
+    <wsdl:part name="parameters" element="tns:OrdenesPendientes" />
+  </wsdl:message>
+  <wsdl:message name="OrdenesPendientesSoapOut">
+    <wsdl:part name="parameters" element="tns:OrdenesPendientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrdenesEntregadasSoapIn">
+    <wsdl:part name="parameters" element="tns:OrdenesEntregadas" />
+  </wsdl:message>
+  <wsdl:message name="OrdenesEntregadasSoapOut">
+    <wsdl:part name="parameters" element="tns:OrdenesEntregadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecetasSoapIn">
+    <wsdl:part name="parameters" element="tns:Recetas" />
+  </wsdl:message>
+  <wsdl:message name="RecetasSoapOut">
+    <wsdl:part name="parameters" element="tns:RecetasResponse" />
+  </wsdl:message>
+  <wsdl:message name="NuevaOrdenSoapIn">
+    <wsdl:part name="parameters" element="tns:NuevaOrden" />
+  </wsdl:message>
+  <wsdl:message name="NuevaOrdenSoapOut">
+    <wsdl:part name="parameters" element="tns:NuevaOrdenResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminaDeOrdenSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminaDeOrden" />
+  </wsdl:message>
+  <wsdl:message name="EliminaDeOrdenSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminaDeOrdenResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarRXOSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarRXO" />
+  </wsdl:message>
+  <wsdl:message name="InsertarRXOSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarRXOResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPassSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPass" />
+  </wsdl:message>
+  <wsdl:message name="CheckPassSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuarios" />
+  </wsdl:message>
+  <wsdl:message name="UsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:UsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="EstadoMesaSoapIn">
+    <wsdl:part name="parameters" element="tns:EstadoMesa" />
+  </wsdl:message>
+  <wsdl:message name="EstadoMesaSoapOut">
+    <wsdl:part name="parameters" element="tns:EstadoMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecibePlatosOrdenSoapIn">
+    <wsdl:part name="parameters" element="tns:RecibePlatosOrden" />
+  </wsdl:message>
+  <wsdl:message name="RecibePlatosOrdenSoapOut">
+    <wsdl:part name="parameters" element="tns:RecibePlatosOrdenResponse" />
+  </wsdl:message>
+  <wsdl:message name="EntregadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Entregado" />
+  </wsdl:message>
+  <wsdl:message name="EntregadoSoapOut">
+    <wsdl:part name="parameters" element="tns:EntregadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PruebaSoapIn">
+    <wsdl:part name="parameters" element="tns:Prueba" />
+  </wsdl:message>
+  <wsdl:message name="PruebaSoapOut">
+    <wsdl:part name="parameters" element="tns:PruebaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="MesasDisponibles">
+      <wsdl:input message="tns:MesasDisponiblesSoapIn" />
+      <wsdl:output message="tns:MesasDisponiblesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrdenesPendientes">
+      <wsdl:input message="tns:OrdenesPendientesSoapIn" />
+      <wsdl:output message="tns:OrdenesPendientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrdenesEntregadas">
+      <wsdl:input message="tns:OrdenesEntregadasSoapIn" />
+      <wsdl:output message="tns:OrdenesEntregadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Recetas">
+      <wsdl:input message="tns:RecetasSoapIn" />
+      <wsdl:output message="tns:RecetasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NuevaOrden">
+      <wsdl:input message="tns:NuevaOrdenSoapIn" />
+      <wsdl:output message="tns:NuevaOrdenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaDeOrden">
+      <wsdl:input message="tns:EliminaDeOrdenSoapIn" />
+      <wsdl:output message="tns:EliminaDeOrdenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarRXO">
+      <wsdl:input message="tns:InsertarRXOSoapIn" />
+      <wsdl:output message="tns:InsertarRXOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPass">
+      <wsdl:input message="tns:CheckPassSoapIn" />
+      <wsdl:output message="tns:CheckPassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios">
+      <wsdl:input message="tns:UsuariosSoapIn" />
+      <wsdl:output message="tns:UsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadoMesa">
+      <wsdl:input message="tns:EstadoMesaSoapIn" />
+      <wsdl:output message="tns:EstadoMesaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibePlatosOrden">
+      <wsdl:input message="tns:RecibePlatosOrdenSoapIn" />
+      <wsdl:output message="tns:RecibePlatosOrdenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Entregado">
+      <wsdl:input message="tns:EntregadoSoapIn" />
+      <wsdl:output message="tns:EntregadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Prueba">
+      <wsdl:input message="tns:PruebaSoapIn" />
+      <wsdl:output message="tns:PruebaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MesasDisponibles">
+      <soap:operation soapAction="http://tempuri.org/MesasDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdenesPendientes">
+      <soap:operation soapAction="http://tempuri.org/OrdenesPendientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdenesEntregadas">
+      <soap:operation soapAction="http://tempuri.org/OrdenesEntregadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recetas">
+      <soap:operation soapAction="http://tempuri.org/Recetas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NuevaOrden">
+      <soap:operation soapAction="http://tempuri.org/NuevaOrden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaDeOrden">
+      <soap:operation soapAction="http://tempuri.org/EliminaDeOrden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarRXO">
+      <soap:operation soapAction="http://tempuri.org/InsertarRXO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPass">
+      <soap:operation soapAction="http://tempuri.org/CheckPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios">
+      <soap:operation soapAction="http://tempuri.org/Usuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadoMesa">
+      <soap:operation soapAction="http://tempuri.org/EstadoMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibePlatosOrden">
+      <soap:operation soapAction="http://tempuri.org/RecibePlatosOrden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Entregado">
+      <soap:operation soapAction="http://tempuri.org/Entregado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Prueba">
+      <soap:operation soapAction="http://tempuri.org/Prueba" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MesasDisponibles">
+      <soap12:operation soapAction="http://tempuri.org/MesasDisponibles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdenesPendientes">
+      <soap12:operation soapAction="http://tempuri.org/OrdenesPendientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdenesEntregadas">
+      <soap12:operation soapAction="http://tempuri.org/OrdenesEntregadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recetas">
+      <soap12:operation soapAction="http://tempuri.org/Recetas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NuevaOrden">
+      <soap12:operation soapAction="http://tempuri.org/NuevaOrden" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaDeOrden">
+      <soap12:operation soapAction="http://tempuri.org/EliminaDeOrden" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarRXO">
+      <soap12:operation soapAction="http://tempuri.org/InsertarRXO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPass">
+      <soap12:operation soapAction="http://tempuri.org/CheckPass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios">
+      <soap12:operation soapAction="http://tempuri.org/Usuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadoMesa">
+      <soap12:operation soapAction="http://tempuri.org/EstadoMesa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibePlatosOrden">
+      <soap12:operation soapAction="http://tempuri.org/RecibePlatosOrden" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Entregado">
+      <soap12:operation soapAction="http://tempuri.org/Entregado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Prueba">
+      <soap12:operation soapAction="http://tempuri.org/Prueba" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://192.168.57.111:8810/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://192.168.57.111:8810/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
